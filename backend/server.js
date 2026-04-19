@@ -24,7 +24,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/index.html'));
 });
 
+module.exports = app;
 
-app.listen(3000, () => {
-    console.log('Servidor rodando em http://localhost:3000');
-});
+/* ALTERADO (proteção para testes) */
+if (require.main === module) {
+    app.listen(3000, () => {
+        console.log('Servidor rodando em http://localhost:3000');
+    });
+}
