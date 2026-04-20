@@ -28,6 +28,7 @@ Este projeto foi criado para:
 - node-postgres (pg)
 - dotenv
 - cors
+- Jest + Supertest (testes)
 
 ### Frontend
 - HTML5
@@ -40,26 +41,37 @@ Este projeto foi criado para:
 ## 🗂️ Estrutura do Projeto
 
 ```
-gamer-registry/
+gamer-registry-tests/
 │
 ├── backend/
 │   ├── routes/
-│   ├── db.js
+│   │   ├── gamerGames.routes.js
+│   │   ├── gamers.routes.js
+│   │   └── games.routes.js
+│   │
+│   ├── tests/
+│   │   ├── games.test.js
+│   │   ├── db.js
+│   │   └── RELATORIO-DE-DEFETO.md
+│   │
 │   ├── server.js
+│   ├── package.json
+│   ├── package-lock.json
 │   └── .env
 │
-├── public/
+├── database/
+│   ├── schema.sql
+│   └── seed.sql
+│
+├── frontend/
 │   ├── index.html
 │   ├── gamers.html
 │   ├── games.html
 │   ├── gamer-games.html
 │   └── script.js
 │
-├── database/
-│   ├── schema.sql
-│   └── seeds.sql
-│
-├── package.json
+├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
@@ -175,22 +187,32 @@ http://localhost:3000
 
 ---
 
-## 🧪 Possibilidades de Testes
+### 🧪 Testes
 
-Este sistema permite aplicação de:
+O projeto inclui testes automatizados utilizando:
 
-- Testes Manuais
-- Testes de API
-- Testes Unitários
-- Testes de Integração
-- Testes de Interface
+- Jest  
+- Supertest  
 
 ---
 
-## 🎓 Uso Educacional
+### ▶️ Executar testes
 
-Projeto desenvolvido para ensino técnico e formação de alunos iniciantes em desenvolvimento e qualidade de software.
+```bash
+npm test
+```
+### 📁 Arquivos de testes
 
+- `backend/tests/games.test.js`
+- `backend/tests/db.js`
+
+---
+
+### 🐞 Relatório de Defeitos
+
+Durante os testes, os defeitos encontrados são documentados em:
+
+- `backend/tests/relatorio-de-defeito.md`
 ---
 
 ## 👨‍💻 Autor
