@@ -1,5 +1,3 @@
-dasdsad
-
 # 🎮 Gamer Registry
 
 Sistema educacional completo para ensino de **Testes de Software**, desenvolvimento **Full Stack básico** e integração entre **Frontend, Backend e Banco de Dados**.
