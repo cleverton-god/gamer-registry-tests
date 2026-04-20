@@ -8,7 +8,7 @@ describe("Testes da API /api/games", () => {
     expect(response.statusCode).toBe(200);
   });
 
-  test("Exercício 2 - Tipo da resposta", async () => {
+  test("Exercício 2 - GET /games retorna array", async () => {
     const response = await request(app).get("/api/games");
 
     expect(response.statusCode).toBe(200);
@@ -27,14 +27,14 @@ describe("Testes da API /api/games", () => {
     expect(response.body).toHaveProperty("genre", "RPG");
   });
 
-  test("Exercício 4 - Validação de dados", async () => {
+  test("Exercício 4 - POST /games com corpo vazio retorna 400", async () => {
     const response = await request(app).post("/api/games").send({});
 
     expect(response.statusCode).toBe(400);
     expect(response.body).toHaveProperty("error");
   });
 
-  test("Exercício 5 - Criar jogo", async () => {
+  test("Exercício 5 - GET /games/:id retorna 200", async () => {
     const createResponse = await request(app).post("/api/games").send({
       title: "GTA V",
       genre: "Ação",
@@ -54,7 +54,7 @@ describe("Testes da API /api/games", () => {
     expect(getResponse.body).toHaveProperty("release_year", 2013);
   });
 
-  test("Exercício 6 - Deletar jogo e verificar 404", async () => {
+  test("Exercício 6 - Fluxo completo", async () => {
     const create = await request(app).post("/api/games").send({
       title: "Minecraft",
       genre: "Sandbox",
@@ -65,11 +65,9 @@ describe("Testes da API /api/games", () => {
 
     const gameId = create.body.id;
 
-    // Deletar o jogo
     const deleteResponse = await request(app).delete(`/api/games/${gameId}`);
     expect(deleteResponse.statusCode).toBe(204);
 
-    // Tentar buscar novamente
     const getResponse = await request(app).get(`/api/games/${gameId}`);
     expect(getResponse.statusCode).toBe(404);
   });
