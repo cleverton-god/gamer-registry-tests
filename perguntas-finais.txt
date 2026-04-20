@@ -1,0 +1,18 @@
+❓1 O que um teste automatizado verifica em uma API?
+
+Pensa nele como alguém “batendo na porta” da API várias vezes pra ver como ela reage. Ele testa se, ao fazer uma requisição, a resposta vem do jeito certo — com o status correto, os dados esperados e sem comportamento estranho. Também serve pra ver como a API se comporta quando recebe algo errado.
+
+
+❓2 Qual a diferença entre os erros:
+
+400:
+Esse erro acontece quando o problema vem de quem fez a requisição. Ou seja, algo foi enviado errado, incompleto ou fora do esperado.
+
+
+500:
+Aqui o problema está no servidor. Mesmo que a requisição esteja correta, algo falhou internamente — pode ser um bug, uma falha no banco ou algo que não foi tratado no código.
+
+
+❓3 Por que testes automatizados são importantes no desenvolvimento de software?
+
+Porque eles funcionam como uma rede de segurança. Sempre que algo muda no código, os testes ajudam a garantir que o que já funcionava continua funcionando. Isso dá mais confiança pra fazer alterações, evita erros passarem despercebidos e reduz o retrabalho depois.
