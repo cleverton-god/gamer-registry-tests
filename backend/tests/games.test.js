@@ -3,6 +3,12 @@ const app = require("../server");
 
 describe("Testes da API /api/games", () => {
 
+  test("Exercício 1 - GET /games retorna 200", async () => {
+    const response = await request(app).get("/api/games");
+  
+    expect(response.statusCode).toBe(200);
+  });
+  
   test("Exercício 2 - Tipo da resposta", async () => {
     const response = await request(app).get("/api/games");
 
