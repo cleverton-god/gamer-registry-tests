@@ -8,7 +8,7 @@ describe("Testes da API /api/games", () => {
   
     expect(response.statusCode).toBe(200);
   });
-  
+
   test("Exercício 2 - Tipo da resposta", async () => {
     const response = await request(app).get("/api/games");
 
@@ -18,7 +18,18 @@ describe("Testes da API /api/games", () => {
 
   });
 
-
+  test("Exercício 3 - POST /games cria jogo válido", async () => {
+    const response = await request(app).post("/api/games").send({
+      title: "The Witcher 3",
+      genre: "RPG"
+    });
+  
+    expect(response.statusCode).toBe(201);
+    expect(response.body).toHaveProperty("id");
+    expect(response.body).toHaveProperty("title", "The Witcher 3");
+    expect(response.body).toHaveProperty("genre", "RPG");
+  });
+  
   test("Exercício 4 - Validação de dados", async () => {
     const response = await request(app).post("/api/games").send({});
 
